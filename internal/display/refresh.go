@@ -177,7 +177,19 @@ func (e *Engine) ensureIndicatorSpace() {
 }
 
 func (e *Engine) ensureInputSpace() {
+	// For single-line input we still need to check whether the cursor
+	// is on the very last row of the terminal. If it is, the prompt
+	// was printed at the bottom and there is no room for helpers or
+	// even the input itself. We scroll by one line so the prompt
+	// moves up and the cursor has room.
 	if e.lineRows <= 1 {
+		termHeight := term.GetLength()
+		if e.startRows >= termHeight {
+			fmt.Print("\n")
+			e.startRows--
+			term.MoveCursorUp(1)
+			term.MoveCursorForwards(e.startCols)
+		}
 		return
 	}
 

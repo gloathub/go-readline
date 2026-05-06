@@ -675,8 +675,30 @@ func (rl *Shell) acceptLineWith(infer, hold bool) {
 	// and insert a newline where our cursor value is.
 	// This has the nice advantage of being able to work
 	// in multiline mode even in the middle of the buffer.
-	rl.line.Insert(rl.cursor.Pos(), '\n')
-	rl.cursor.Inc()
+	// Auto-indent: match the leading whitespace of the current line.
+	indent := currentLineIndent(*rl.line, rl.cursor.Pos())
+	chars := make([]rune, 0, 1+len(indent))
+	chars = append(chars, '\n')
+	chars = append(chars, indent...)
+	rl.line.Insert(rl.cursor.Pos(), chars...)
+	rl.cursor.Set(rl.cursor.Pos() + len(chars))
+}
+
+// currentLineIndent returns the leading whitespace of the line
+// containing the given cursor position.
+func currentLineIndent(line []rune, pos int) []rune {
+	// Find start of current line
+	start := pos
+	for start > 0 && line[start-1] != '\n' {
+		start--
+	}
+
+	// Collect leading whitespace
+	var indent []rune
+	for i := start; i < len(line) && (line[i] == ' ' || line[i] == '\t'); i++ {
+		indent = append(indent, line[i])
+	}
+	return indent
 }
 
 func (rl *Shell) insertAutosuggestPartial(emacs bool) {

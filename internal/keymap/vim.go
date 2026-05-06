@@ -22,8 +22,8 @@ var viinsKeys = map[string]inputrc.Bind{
 	unescape(`\M-[3~`): {Action: "delete-char"},
 	unescape(`\M-[H`):  {Action: "beginning-of-line"},
 	unescape(`\M-[F`):  {Action: "end-of-line"},
-	unescape(`\M-[A`):  {Action: "up-line-or-search"},
-	unescape(`\M-[B`):  {Action: "down-line-or-search"},
+	unescape(`\M-[A`):  {Action: "up-line-or-history"},
+	unescape(`\M-[B`):  {Action: "down-line-or-history"},
 	unescape(`\M-@`):   {Action: "macro-run"},
 }
 

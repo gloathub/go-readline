@@ -216,8 +216,8 @@ func DefaultBinds() map[string]map[string]Bind {
 			// menu-complete (not bound)
 			// menu-complete-backward (not bound)
 			Unescape(`\C-n`):  Bind{"next-history", false},
-			Unescape(`\M-OB`): Bind{"next-history", false},
-			Unescape(`\M-[B`): Bind{"next-history", false},
+			Unescape(`\M-OB`): Bind{"down-line-or-history", false},
+			Unescape(`\M-[B`): Bind{"down-line-or-history", false},
 			// next-screen-line (not bound)
 			Unescape(`\M-n`): Bind{"non-incremental-forward-search-history", false},
 			// non-incremental-forward-search-history-again (not bound)
@@ -234,8 +234,8 @@ func DefaultBinds() map[string]map[string]Bind {
 			Unescape(`\C-x~`): Bind{"possible-username-completions", false},
 			Unescape(`\C-x$`): Bind{"possible-variable-completions", false},
 			Unescape(`\C-p`):  Bind{"previous-history", false},
-			Unescape(`\M-OA`): Bind{"previous-history", false},
-			Unescape(`\M-[A`): Bind{"previous-history", false},
+			Unescape(`\M-OA`): Bind{"up-line-or-history", false},
+			Unescape(`\M-[A`): Bind{"up-line-or-history", false},
 			// previous-screen-line (not bound)
 			// print-last-kbd-macro (not bound)
 			Unescape(`\C-q`):     Bind{"quoted-insert", false},
@@ -699,8 +699,8 @@ func DefaultBinds() map[string]map[string]Bind {
 			// menu-complete (not bound)
 			// menu-complete-backward (not bound)
 			Unescape(`\C-n`):  Bind{"next-history", false},
-			Unescape(`\M-OB`): Bind{"next-history", false},
-			Unescape(`\M-[B`): Bind{"next-history", false},
+			Unescape(`\M-OB`): Bind{"down-line-or-history", false},
+			Unescape(`\M-[B`): Bind{"down-line-or-history", false},
 			// next-screen-line (not bound)
 			Unescape(`\M-n`): Bind{"non-incremental-forward-search-history", false},
 			// non-incremental-forward-search-history-again (not bound)
@@ -717,8 +717,8 @@ func DefaultBinds() map[string]map[string]Bind {
 			Unescape(`\C-x~`): Bind{"possible-username-completions", false},
 			Unescape(`\C-x$`): Bind{"possible-variable-completions", false},
 			Unescape(`\C-p`):  Bind{"previous-history", false},
-			Unescape(`\M-OA`): Bind{"previous-history", false},
-			Unescape(`\M-[A`): Bind{"previous-history", false},
+			Unescape(`\M-OA`): Bind{"up-line-or-history", false},
+			Unescape(`\M-[A`): Bind{"up-line-or-history", false},
 			// previous-screen-line (not bound)
 			// print-last-kbd-macro (not bound)
 			Unescape(`\C-q`):     Bind{"quoted-insert", false},
@@ -1146,8 +1146,8 @@ func DefaultBinds() map[string]map[string]Bind {
 			// magic-space (not bound)
 			// menu-complete (not bound)
 			// menu-complete-backward (not bound)
-			Unescape(`OB`): Bind{"next-history", false},
-			Unescape(`[B`): Bind{"next-history", false},
+			Unescape(`OB`): Bind{"down-line-or-history", false},
+			Unescape(`[B`): Bind{"down-line-or-history", false},
 			// next-screen-line (not bound)
 			Unescape(`n`): Bind{"non-incremental-forward-search-history", false},
 			// non-incremental-forward-search-history-again (not bound)
@@ -1163,8 +1163,8 @@ func DefaultBinds() map[string]map[string]Bind {
 			// possible-hostname-completions (not bound)
 			// possible-username-completions (not bound)
 			// possible-variable-completions (not bound)
-			Unescape(`OA`): Bind{"previous-history", false},
-			Unescape(`[A`): Bind{"previous-history", false},
+			Unescape(`OA`): Bind{"up-line-or-history", false},
+			Unescape(`[A`): Bind{"up-line-or-history", false},
 			// previous-screen-line (not bound)
 			// print-last-kbd-macro (not bound)
 			// quoted-insert (not bound)
@@ -1532,10 +1532,10 @@ func DefaultBinds() map[string]map[string]Bind {
 			// menu-complete (not bound)
 			// menu-complete-backward (not bound)
 			Unescape(`\C-n`):  Bind{"next-history", false},
-			Unescape(`\M-OB`): Bind{"next-history", false},
-			Unescape(`\M-[B`): Bind{"next-history", false},
-			Unescape(`+`):     Bind{"next-history", false},
-			Unescape(`j`):     Bind{"next-history", false},
+			Unescape(`\M-OB`): Bind{"down-line-or-history", false},
+			Unescape(`\M-[B`): Bind{"down-line-or-history", false},
+			Unescape(`+`):     Bind{"vi-down-line-or-history", false},
+			Unescape(`j`):     Bind{"vi-down-line-or-history", false},
 			// next-screen-line (not bound)
 			// non-incremental-forward-search-history (not bound)
 			// non-incremental-forward-search-history-again (not bound)
@@ -1551,10 +1551,10 @@ func DefaultBinds() map[string]map[string]Bind {
 			// possible-username-completions (not bound)
 			// possible-variable-completions (not bound)
 			Unescape(`\C-p`):  Bind{"previous-history", false},
-			Unescape(`\M-OA`): Bind{"previous-history", false},
-			Unescape(`\M-[A`): Bind{"previous-history", false},
-			Unescape(`-`):     Bind{"previous-history", false},
-			Unescape(`k`):     Bind{"previous-history", false},
+			Unescape(`\M-OA`): Bind{"up-line-or-history", false},
+			Unescape(`\M-[A`): Bind{"up-line-or-history", false},
+			Unescape(`-`):     Bind{"up-line-or-history", false},
+			Unescape(`k`):     Bind{"up-line-or-history", false},
 			// previous-screen-line (not bound)
 			// print-last-kbd-macro (not bound)
 			Unescape(`\C-q`): Bind{"quoted-insert", false},
@@ -1748,10 +1748,10 @@ func DefaultBinds() map[string]map[string]Bind {
 			// menu-complete (not bound)
 			// menu-complete-backward (not bound)
 			Unescape(`\C-n`):  Bind{"next-history", false},
-			Unescape(`\M-OB`): Bind{"next-history", false},
-			Unescape(`\M-[B`): Bind{"next-history", false},
-			Unescape(`+`):     Bind{"next-history", false},
-			Unescape(`j`):     Bind{"next-history", false},
+			Unescape(`\M-OB`): Bind{"down-line-or-history", false},
+			Unescape(`\M-[B`): Bind{"down-line-or-history", false},
+			Unescape(`+`):     Bind{"vi-down-line-or-history", false},
+			Unescape(`j`):     Bind{"vi-down-line-or-history", false},
 			// next-screen-line (not bound)
 			// non-incremental-forward-search-history (not bound)
 			// non-incremental-forward-search-history-again (not bound)
@@ -1767,10 +1767,10 @@ func DefaultBinds() map[string]map[string]Bind {
 			// possible-username-completions (not bound)
 			// possible-variable-completions (not bound)
 			Unescape(`\C-p`):  Bind{"previous-history", false},
-			Unescape(`\M-OA`): Bind{"previous-history", false},
-			Unescape(`\M-[A`): Bind{"previous-history", false},
-			Unescape(`-`):     Bind{"previous-history", false},
-			Unescape(`k`):     Bind{"previous-history", false},
+			Unescape(`\M-OA`): Bind{"up-line-or-history", false},
+			Unescape(`\M-[A`): Bind{"up-line-or-history", false},
+			Unescape(`-`):     Bind{"up-line-or-history", false},
+			Unescape(`k`):     Bind{"up-line-or-history", false},
 			// previous-screen-line (not bound)
 			// print-last-kbd-macro (not bound)
 			Unescape(`\C-q`): Bind{"quoted-insert", false},
@@ -1964,10 +1964,10 @@ func DefaultBinds() map[string]map[string]Bind {
 			// menu-complete (not bound)
 			// menu-complete-backward (not bound)
 			Unescape(`\C-n`):  Bind{"next-history", false},
-			Unescape(`\M-OB`): Bind{"next-history", false},
-			Unescape(`\M-[B`): Bind{"next-history", false},
-			Unescape(`+`):     Bind{"next-history", false},
-			Unescape(`j`):     Bind{"next-history", false},
+			Unescape(`\M-OB`): Bind{"down-line-or-history", false},
+			Unescape(`\M-[B`): Bind{"down-line-or-history", false},
+			Unescape(`+`):     Bind{"vi-down-line-or-history", false},
+			Unescape(`j`):     Bind{"vi-down-line-or-history", false},
 			// next-screen-line (not bound)
 			// non-incremental-forward-search-history (not bound)
 			// non-incremental-forward-search-history-again (not bound)
@@ -1983,10 +1983,10 @@ func DefaultBinds() map[string]map[string]Bind {
 			// possible-username-completions (not bound)
 			// possible-variable-completions (not bound)
 			Unescape(`\C-p`):  Bind{"previous-history", false},
-			Unescape(`\M-OA`): Bind{"previous-history", false},
-			Unescape(`\M-[A`): Bind{"previous-history", false},
-			Unescape(`-`):     Bind{"previous-history", false},
-			Unescape(`k`):     Bind{"previous-history", false},
+			Unescape(`\M-OA`): Bind{"up-line-or-history", false},
+			Unescape(`\M-[A`): Bind{"up-line-or-history", false},
+			Unescape(`-`):     Bind{"up-line-or-history", false},
+			Unescape(`k`):     Bind{"up-line-or-history", false},
 			// previous-screen-line (not bound)
 			// print-last-kbd-macro (not bound)
 			Unescape(`\C-q`): Bind{"quoted-insert", false},
@@ -2174,8 +2174,8 @@ func DefaultBinds() map[string]map[string]Bind {
 			// magic-space (not bound)
 			Unescape(`\C-n`):  Bind{"menu-complete", false},
 			Unescape(`\C-p`):  Bind{"menu-complete-backward", false},
-			Unescape(`\M-OB`): Bind{"next-history", false},
-			Unescape(`\M-[B`): Bind{"next-history", false},
+			Unescape(`\M-OB`): Bind{"down-line-or-history", false},
+			Unescape(`\M-[B`): Bind{"down-line-or-history", false},
 			// next-screen-line (not bound)
 			// non-incremental-forward-search-history (not bound)
 			// non-incremental-forward-search-history-again (not bound)
@@ -2190,8 +2190,8 @@ func DefaultBinds() map[string]map[string]Bind {
 			// possible-hostname-completions (not bound)
 			// possible-username-completions (not bound)
 			// possible-variable-completions (not bound)
-			Unescape(`\M-OA`): Bind{"previous-history", false},
-			Unescape(`\M-[A`): Bind{"previous-history", false},
+			Unescape(`\M-OA`): Bind{"up-line-or-history", false},
+			Unescape(`\M-[A`): Bind{"up-line-or-history", false},
 			// previous-screen-line (not bound)
 			// print-last-kbd-macro (not bound)
 			Unescape(`\C-v`): Bind{"quoted-insert", false},

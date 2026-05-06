@@ -448,6 +448,12 @@ func (rl *Shell) selfInsert() {
 	rl.cursor.InsertAt(quoted...)
 	rl.cursor.Move(-1 * len(quoted))
 	rl.cursor.Move(length)
+
+	// If the completion menu is active, regenerate completions
+	// so the menu filters as the user types.
+	if rl.completer.IsActive() && !rl.completer.IsInserting() {
+		rl.completer.GenerateCached()
+	}
 }
 
 func (rl *Shell) bracketedPasteBegin() {

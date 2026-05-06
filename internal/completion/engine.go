@@ -89,7 +89,51 @@ func (e *Engine) Generate(completions Values) {
 	if e.hasUniqueCandidate() && e.keymap.Local() != keymap.Isearch {
 		e.acceptCandidate()
 		e.ClearMenu(true)
+		return
 	}
+
+	// When menu-complete-display-prefix is set, insert the common
+	// prefix of all candidates on the first Tab press, so the user
+	// doesn't have to press Tab twice to advance past unambiguous
+	// characters.
+	if e.config.GetBool("menu-complete-display-prefix") {
+		e.insertCommonPrefix()
+	}
+}
+
+// insertCommonPrefix replaces the typed prefix with the longest
+// string shared by every remaining candidate.
+func (e *Engine) insertCommonPrefix() {
+	var vals []string
+	for _, grp := range e.groups {
+		for _, row := range grp.rows {
+			for _, val := range row {
+				vals = append(vals, val.Value)
+			}
+		}
+	}
+	if len(vals) == 0 {
+		return
+	}
+
+	common := vals[0]
+	for _, v := range vals[1:] {
+		i := 0
+		for i < len(common) && i < len(v) && common[i] == v[i] {
+			i++
+		}
+		common = common[:i]
+	}
+
+	// Only insert if the common prefix is longer than what's typed.
+	if len(common) <= len(e.prefix) {
+		return
+	}
+
+	e.cursor.Move(-1 * len(e.prefix))
+	e.line.Cut(e.cursor.Pos(), e.cursor.Pos()+len(e.prefix))
+	e.cursor.InsertAt([]rune(common)...)
+	e.prefix = common
 }
 
 // GenerateWith generates completions with a completer function, itself cached

@@ -1,6 +1,7 @@
 package readline
 
 import (
+	"bytes"
 	"fmt"
 	"io"
 	"slices"
@@ -469,7 +470,11 @@ func (rl *Shell) bracketedPasteBegin() {
 	}
 
 	if len(sequence) > 6 {
-		rl.cursor.InsertAt([]rune(string(sequence[:len(sequence)-6]))...)
+		pasted := sequence[:len(sequence)-6]
+		// Convert \r and \r\n to \n for proper multiline handling.
+		pasted = bytes.ReplaceAll(pasted, []byte("\r\n"), []byte("\n"))
+		pasted = bytes.ReplaceAll(pasted, []byte("\r"), []byte("\n"))
+		rl.cursor.InsertAt([]rune(string(pasted))...)
 	}
 }
 

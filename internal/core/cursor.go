@@ -249,12 +249,10 @@ func (c *Cursor) LineMove(lines int) {
 	if lines < 0 {
 		for i := 0; i < -lines; i++ {
 			c.moveLineUp()
-			c.CheckCommand()
 		}
 	} else {
 		for range lines {
 			c.moveLineDown()
-			c.CheckCommand()
 		}
 	}
 }

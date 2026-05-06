@@ -358,6 +358,17 @@ func (e *Engine) Line() (*core.Line, *core.Cursor) {
 // We don't do it when we are currently in the completion keymap,
 // since that means completions have already been computed.
 func (e *Engine) Autocomplete() {
+	// When the menu is visible but no candidate is selected
+	// (e.g. after menu-complete-display-prefix), regenerate
+	// completions on every refresh so the menu filters as
+	// the user types, deletes, or otherwise edits the line.
+	if e.keymap.Local() == keymap.MenuSelect && len(e.selected.Value) == 0 {
+		if e.cached != nil {
+			e.prepare(e.cached())
+		}
+		return
+	}
+
 	e.auto = e.needsAutoComplete()
 
 	// Clear the current completion list when we are at the

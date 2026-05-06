@@ -20,6 +20,15 @@ func UpdateInserted(eng *Engine) {
 	// is still displayed to the user, otherwise it's removed.
 	// This does not apply when autocomplete is on.
 	choices := len(eng.selected.Value) != 0
+
+	// When the menu is visible but no candidate is selected
+	// (e.g. after menu-complete-display-prefix), keep the menu
+	// open so it can be regenerated after the character is inserted.
+	menuVisible := eng.keymap.Local() == keymap.MenuSelect && !choices
+	if menuVisible {
+		return
+	}
+
 	if !eng.auto {
 		defer eng.ClearMenu(choices)
 	}

@@ -61,6 +61,12 @@ type Shell struct {
 	// It takes the readline line ([]rune) and cursor pos as parameters,
 	// and returns completions with their associated metadata/settings.
 	Completer func(line []rune, cursor int) Completions
+
+	// SuggestFunc provides custom ghost text suggestions. When set, it is
+	// called instead of history-based suggestions. It receives the current
+	// line and should return the full suggested line (not just the suffix).
+	// Return nil or a slice shorter/equal to line for no suggestion.
+	SuggestFunc func(line []rune) []rune
 }
 
 // NewShell returns a readline shell instance initialized with a default
@@ -123,6 +129,19 @@ func NewShell(opts ...inputrc.Option) *Shell {
 // When the shell is in incremental-search mode, this line is the minibuffer.
 // The line returned here is thus the input buffer of interest at call time.
 func (rl *Shell) Line() *core.Line { return rl.line }
+
+// Suggest returns ghost text for the current line. If SuggestFunc is set,
+// it is used; otherwise the suggestion comes from history.
+func (rl *Shell) Suggest(line *core.Line) core.Line {
+	if rl.SuggestFunc != nil {
+		result := rl.SuggestFunc([]rune(*line))
+		if result != nil && len(result) > line.Len() {
+			return core.Line(result)
+		}
+		return *line
+	}
+	return rl.History.Suggest(line)
+}
 
 // Cursor is the cursor position in the current line buffer.
 // Contains methods to set, move, describe and check itself.

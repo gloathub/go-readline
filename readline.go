@@ -160,6 +160,12 @@ func (rl *Shell) init() {
 	rl.Hint.Reset()
 	rl.completer.ResetForce()
 	display.Init(rl.Display, rl.SyntaxHighlighter)
+
+	if rl.SuggestFunc != nil {
+		rl.Display.SetSuggestFunc(func(line *core.Line) core.Line {
+			return rl.Suggest(line)
+		})
+	}
 }
 
 // run wraps the execution of a target command/sequence with various pre/post actions

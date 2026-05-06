@@ -575,7 +575,7 @@ func (rl *Shell) historySourcePrev() {
 
 // If a line is currently auto-suggested, make it the buffer.
 func (rl *Shell) autosuggestAccept() {
-	suggested := rl.History.Suggest(rl.line)
+	suggested := rl.Suggest(rl.line)
 
 	if suggested.Len() <= rl.line.Len() {
 		return
@@ -587,7 +587,7 @@ func (rl *Shell) autosuggestAccept() {
 
 // If a line is currently auto-suggested, make it the buffer and execute it.
 func (rl *Shell) autosuggestExecute() {
-	suggested := rl.History.Suggest(rl.line)
+	suggested := rl.Suggest(rl.line)
 
 	if suggested.Len() <= rl.line.Len() {
 		return
@@ -711,7 +711,7 @@ func (rl *Shell) insertAutosuggestPartial(emacs bool) {
 		return
 	}
 
-	suggested := rl.History.Suggest(rl.line)
+	suggested := rl.Suggest(rl.line)
 
 	if suggested.Len() > rl.line.Len() {
 		var forward int

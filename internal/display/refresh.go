@@ -239,7 +239,7 @@ func (e *Engine) displayLineRefactored() {
 	// Apply visual selections highlighting if any
 	line = e.highlightLine([]rune(line), *e.selection)
 	// Get the subset of the suggested line to print.
-	if len(e.suggested) > e.line.Len() && e.opts.GetBool("history-autosuggest") {
+	if len(e.suggested) > e.line.Len() && (e.opts.GetBool("history-autosuggest") || e.suggestFunc != nil) {
 		line += color.Dim + color.Fmt(color.Fg+"242") + string(e.suggested[e.line.Len():]) + color.Reset
 	}
 	// Format tabs as spaces, for consistent display

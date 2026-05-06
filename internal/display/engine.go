@@ -23,6 +23,7 @@ var (
 type Engine struct {
 	// Operating parameters
 	highlighter    func(line []rune) string
+	suggestFunc    func(line *core.Line) core.Line
 	startCols      int
 	startRows      int
 	lineCol        int
@@ -64,6 +65,12 @@ func NewEngine(k *core.Keys, s *core.Selection, h *history.Sources, p *ui.Prompt
 // have bound it after instantiating a new shell instance.
 func Init(e *Engine, highlighter func([]rune) string) {
 	e.highlighter = highlighter
+}
+
+// SetSuggestFunc sets a custom suggestion provider for ghost text.
+// When set, this function is used instead of history-based suggestions.
+func (e *Engine) SetSuggestFunc(fn func(line *core.Line) core.Line) {
+	e.suggestFunc = fn
 }
 
 // PrintPrimaryPrompt redraws the primary prompt.
@@ -171,6 +178,8 @@ func (e *Engine) computeCoordinates(suggested bool) {
 	e.line, e.cursor = e.completer.Line()
 	if e.completer.IsInserting() {
 		e.suggested = *e.line
+	} else if e.suggestFunc != nil {
+		e.suggested = e.suggestFunc(e.line)
 	} else {
 		e.suggested = e.histories.Suggest(e.line)
 	}
@@ -191,7 +200,9 @@ func (e *Engine) computeCoordinates(suggested bool) {
 	e.cursorCol, e.cursorRow = core.CoordinatesCursor(e.cursor, e.startCols)
 
 	// Get the number of rows used by the line, and the end line X pos.
-	if e.opts.GetBool("history-autosuggest") && suggested {
+	// When using a custom suggest function, always compute coordinates
+	// from the actual line -- ghost text is cosmetic only.
+	if e.suggestFunc == nil && e.opts.GetBool("history-autosuggest") && suggested {
 		e.lineCol, e.lineRows = core.CoordinatesLine(&e.suggested, e.startCols)
 	} else {
 		e.lineCol, e.lineRows = core.CoordinatesLine(e.line, e.startCols)
@@ -220,7 +231,7 @@ func (e *Engine) displayLine() {
 	line = e.highlightLine([]rune(line), *e.selection)
 
 	// Get the subset of the suggested line to print.
-	if len(e.suggested) > e.line.Len() && e.opts.GetBool("history-autosuggest") {
+	if len(e.suggested) > e.line.Len() && (e.opts.GetBool("history-autosuggest") || e.suggestFunc != nil) {
 		line += color.Dim + color.Fmt(color.Fg+"242") + string(e.suggested[e.line.Len():]) + color.Reset
 	}
 

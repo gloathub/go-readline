@@ -10,6 +10,7 @@ var viinsKeys = map[string]inputrc.Bind{
 	unescape(`\C-Y`):   {Action: "yank"},
 	unescape(`\C-A`):   {Action: "beginning-of-line"},
 	unescape(`\C-B`):   {Action: "backward-char"},
+	unescape(`\C-E`):   {Action: "end-of-line"},
 	unescape(`\C-F`):   {Action: "forward-char"},
 	unescape(`\C-K`):   {Action: "kill-line"},
 	unescape(`\C-N`):   {Action: "down-line-or-history"},

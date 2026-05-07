@@ -359,7 +359,9 @@ func (h *Sources) LineAccepted() (bool, string, error) {
 	line := string(h.acceptLine)
 
 	// Revert all state changes to all lines.
-	if h.config.GetBool("revert-all-at-newline") {
+	// Always revert on error (Ctrl+C/Ctrl+D) so that aborted edits
+	// to history entries are discarded, not preserved.
+	if h.acceptErr != nil || h.config.GetBool("revert-all-at-newline") {
 		for source := range h.lines {
 			h.lines[source] = make(map[int]*lineHistory)
 		}

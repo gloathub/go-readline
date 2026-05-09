@@ -89,7 +89,7 @@ func Fmt(color string) string {
 // string, including all escape codes found between and immediately around
 // those characters (including surrounding 1st and 80th ones).
 func Trim(input string, maxPrintableLength int) string {
-	if len(input) < maxPrintableLength {
+	if maxPrintableLength < 0 || len(input) < maxPrintableLength {
 		return input
 	}
 

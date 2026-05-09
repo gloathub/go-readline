@@ -357,8 +357,11 @@ func (g *group) trimDisplay(comp Candidate, pad, col int) (candidate, padded str
 	val = sanitizer.Replace(val)
 
 	if comp.displayLen > maxDisplayWidth {
-		val = color.Trim(val, maxDisplayWidth-trailingValueLen)
-		val += "..." // 3 dots + 1 safety space = -3
+		trimLen := maxDisplayWidth - trailingValueLen
+		if trimLen > 0 {
+			val = color.Trim(val, trimLen)
+			val += "..."
+		}
 
 		return val, " "
 	}

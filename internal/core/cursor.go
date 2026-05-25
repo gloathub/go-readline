@@ -1,8 +1,8 @@
 package core
 
 import (
-	"github.com/reeflective/readline/inputrc"
-	"github.com/reeflective/readline/internal/strutil"
+	"github.com/gloathub/go-readline/inputrc"
+	"github.com/gloathub/go-readline/internal/strutil"
 )
 
 // Cursor is the cursor position in the current line buffer.

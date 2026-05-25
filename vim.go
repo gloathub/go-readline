@@ -3,9 +3,9 @@ package readline
 import (
 	"unicode"
 
-	"github.com/reeflective/readline/inputrc"
-	"github.com/reeflective/readline/internal/keymap"
-	"github.com/reeflective/readline/internal/strutil"
+	"github.com/gloathub/go-readline/inputrc"
+	"github.com/gloathub/go-readline/internal/keymap"
+	"github.com/gloathub/go-readline/internal/strutil"
 )
 
 // commands maps widget names to their implementation.

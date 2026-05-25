@@ -4,7 +4,7 @@
 package display
 
 import (
-	"github.com/reeflective/readline/internal/core"
+	"github.com/gloathub/go-readline/internal/core"
 )
 
 // WatchResize redisplays the interface on terminal resize events on Windows.

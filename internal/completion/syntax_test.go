@@ -3,7 +3,7 @@ package completion
 import (
 	"testing"
 
-	"github.com/reeflective/readline/internal/core"
+	"github.com/gloathub/go-readline/internal/core"
 )
 
 func TestAutopairInsertOrJump(t *testing.T) {

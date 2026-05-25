@@ -1,4 +1,4 @@
-module github.com/reeflective/readline
+module github.com/gloathub/go-readline
 
 go 1.23.6
 

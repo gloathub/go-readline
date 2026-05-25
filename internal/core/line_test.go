@@ -7,8 +7,8 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/reeflective/readline/internal/color"
-	"github.com/reeflective/readline/internal/term"
+	"github.com/gloathub/go-readline/internal/color"
+	"github.com/gloathub/go-readline/internal/term"
 )
 
 // getTermWidth is used as a variable so that we can

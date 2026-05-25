@@ -3,10 +3,10 @@ package completion
 import (
 	"regexp"
 
-	"github.com/reeflective/readline/inputrc"
-	"github.com/reeflective/readline/internal/core"
-	"github.com/reeflective/readline/internal/keymap"
-	"github.com/reeflective/readline/internal/ui"
+	"github.com/gloathub/go-readline/inputrc"
+	"github.com/gloathub/go-readline/internal/core"
+	"github.com/gloathub/go-readline/internal/keymap"
+	"github.com/gloathub/go-readline/internal/ui"
 )
 
 // Engine is responsible for all completion tasks: generating, computing,

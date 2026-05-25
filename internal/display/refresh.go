@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/reeflective/readline/internal/color"
-	"github.com/reeflective/readline/internal/completion"
-	"github.com/reeflective/readline/internal/core"
-	"github.com/reeflective/readline/internal/strutil"
-	"github.com/reeflective/readline/internal/term"
-	"github.com/reeflective/readline/internal/ui"
+	"github.com/gloathub/go-readline/internal/color"
+	"github.com/gloathub/go-readline/internal/completion"
+	"github.com/gloathub/go-readline/internal/core"
+	"github.com/gloathub/go-readline/internal/strutil"
+	"github.com/gloathub/go-readline/internal/term"
+	"github.com/gloathub/go-readline/internal/ui"
 )
 
 // Refresh recomputes and redisplays the entire readline interface, except

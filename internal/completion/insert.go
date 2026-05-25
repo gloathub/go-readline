@@ -3,9 +3,9 @@ package completion
 import (
 	"unicode"
 
-	"github.com/reeflective/readline/inputrc"
-	"github.com/reeflective/readline/internal/core"
-	"github.com/reeflective/readline/internal/keymap"
+	"github.com/gloathub/go-readline/inputrc"
+	"github.com/gloathub/go-readline/internal/core"
+	"github.com/gloathub/go-readline/internal/keymap"
 )
 
 // UpdateInserted should be called only once in between the two shell keymaps

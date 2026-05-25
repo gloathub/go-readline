@@ -7,8 +7,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/reeflective/readline/internal/color"
-	"github.com/reeflective/readline/internal/core"
+	"github.com/gloathub/go-readline/internal/color"
+	"github.com/gloathub/go-readline/internal/core"
 )
 
 // highlightLine applies visual/selection highlighting to a line.

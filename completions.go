@@ -3,7 +3,7 @@ package readline
 import (
 	"fmt"
 
-	"github.com/reeflective/readline/internal/completion"
+	"github.com/gloathub/go-readline/internal/completion"
 )
 
 // Completion represents a completion candidate.

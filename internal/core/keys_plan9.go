@@ -8,7 +8,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/reeflective/readline/internal/term"
+	"github.com/gloathub/go-readline/internal/term"
 )
 
 // GetCursorPos returns the current cursor position in the terminal.

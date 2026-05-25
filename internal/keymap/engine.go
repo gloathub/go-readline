@@ -3,8 +3,8 @@ package keymap
 import (
 	"sort"
 
-	"github.com/reeflective/readline/inputrc"
-	"github.com/reeflective/readline/internal/core"
+	"github.com/gloathub/go-readline/inputrc"
+	"github.com/gloathub/go-readline/internal/core"
 )
 
 // Engine is used to manage the main and local keymaps for the shell.

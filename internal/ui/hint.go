@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/reeflective/readline/internal/color"
-	"github.com/reeflective/readline/internal/strutil"
-	"github.com/reeflective/readline/internal/term"
+	"github.com/gloathub/go-readline/internal/color"
+	"github.com/gloathub/go-readline/internal/strutil"
+	"github.com/gloathub/go-readline/internal/term"
 )
 
 // Hint is in charge of printing the usage messages below the input line.

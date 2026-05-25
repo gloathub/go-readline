@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/reeflective/readline/internal/color"
+	"github.com/gloathub/go-readline/internal/color"
 )
 
 // Iterations manages iterations for commands.

@@ -3,8 +3,8 @@ package completion
 import (
 	"strings"
 
-	"github.com/reeflective/readline/internal/color"
-	"github.com/reeflective/readline/internal/term"
+	"github.com/gloathub/go-readline/internal/color"
+	"github.com/gloathub/go-readline/internal/term"
 )
 
 func (e *Engine) hintCompletions(comps Values) {

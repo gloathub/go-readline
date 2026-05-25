@@ -4,9 +4,9 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/reeflective/readline/inputrc"
-	"github.com/reeflective/readline/internal/core"
-	"github.com/reeflective/readline/internal/strutil"
+	"github.com/gloathub/go-readline/inputrc"
+	"github.com/gloathub/go-readline/internal/core"
+	"github.com/gloathub/go-readline/internal/strutil"
 )
 
 // MatchLocal incrementally attempts to match cached input keys against the local keymap.

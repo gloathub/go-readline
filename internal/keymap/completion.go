@@ -3,7 +3,7 @@ package keymap
 import (
 	"slices"
 
-	"github.com/reeflective/readline/inputrc"
+	"github.com/gloathub/go-readline/inputrc"
 )
 
 // menuselectKeys are the default keymaps in menuselect mode.

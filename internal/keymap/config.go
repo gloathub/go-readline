@@ -7,7 +7,7 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/reeflective/readline/inputrc"
+	"github.com/gloathub/go-readline/inputrc"
 )
 
 // readline global options specific to this library.

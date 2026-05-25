@@ -4,9 +4,9 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/reeflective/readline/internal/color"
-	"github.com/reeflective/readline/internal/keymap"
-	"github.com/reeflective/readline/internal/term"
+	"github.com/gloathub/go-readline/internal/color"
+	"github.com/gloathub/go-readline/internal/keymap"
+	"github.com/gloathub/go-readline/internal/term"
 )
 
 const (

@@ -9,8 +9,8 @@ import (
 
 	"github.com/rivo/uniseg"
 
-	"github.com/reeflective/readline/inputrc"
-	"github.com/reeflective/readline/internal/strutil"
+	"github.com/gloathub/go-readline/inputrc"
+	"github.com/gloathub/go-readline/internal/strutil"
 )
 
 const (

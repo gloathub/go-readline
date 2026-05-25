@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/reeflective/readline/internal/color"
+	"github.com/gloathub/go-readline/internal/color"
 )
 
 func TestIterations_Add(t *testing.T) {

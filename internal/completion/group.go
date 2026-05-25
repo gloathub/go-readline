@@ -7,8 +7,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/reeflective/readline/internal/color"
-	"github.com/reeflective/readline/internal/term"
+	"github.com/gloathub/go-readline/internal/color"
+	"github.com/gloathub/go-readline/internal/term"
 )
 
 // group is used to structure different types of completions with different

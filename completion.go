@@ -3,10 +3,10 @@ package readline
 import (
 	"fmt"
 
-	"github.com/reeflective/readline/internal/color"
-	"github.com/reeflective/readline/internal/completion"
-	"github.com/reeflective/readline/internal/history"
-	"github.com/reeflective/readline/internal/keymap"
+	"github.com/gloathub/go-readline/internal/color"
+	"github.com/gloathub/go-readline/internal/completion"
+	"github.com/gloathub/go-readline/internal/history"
+	"github.com/gloathub/go-readline/internal/keymap"
 )
 
 func (rl *Shell) completionCommands() commands {

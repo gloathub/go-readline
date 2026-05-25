@@ -8,8 +8,8 @@ import (
 	"sync"
 	"unicode"
 
-	"github.com/reeflective/readline/internal/color"
-	"github.com/reeflective/readline/internal/completion"
+	"github.com/gloathub/go-readline/internal/color"
+	"github.com/gloathub/go-readline/internal/completion"
 )
 
 var (

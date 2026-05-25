@@ -6,10 +6,10 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/reeflective/readline/inputrc"
-	"github.com/reeflective/readline/internal/color"
-	"github.com/reeflective/readline/internal/strutil"
-	"github.com/reeflective/readline/internal/term"
+	"github.com/gloathub/go-readline/inputrc"
+	"github.com/gloathub/go-readline/internal/color"
+	"github.com/gloathub/go-readline/internal/strutil"
+	"github.com/gloathub/go-readline/internal/term"
 )
 
 // Tokenizer is a method used by a (line) type to split itself according to

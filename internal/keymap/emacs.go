@@ -1,6 +1,6 @@
 package keymap
 
-import "github.com/reeflective/readline/inputrc"
+import "github.com/gloathub/go-readline/inputrc"
 
 var unescape = inputrc.Unescape
 

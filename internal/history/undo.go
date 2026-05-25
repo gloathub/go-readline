@@ -1,8 +1,8 @@
 package history
 
 import (
-	"github.com/reeflective/readline/inputrc"
-	"github.com/reeflective/readline/internal/core"
+	"github.com/gloathub/go-readline/inputrc"
+	"github.com/gloathub/go-readline/internal/core"
 )
 
 // lineHistory contains all state changes for a given input line,

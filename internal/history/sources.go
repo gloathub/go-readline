@@ -6,11 +6,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/reeflective/readline/inputrc"
-	"github.com/reeflective/readline/internal/color"
-	"github.com/reeflective/readline/internal/completion"
-	"github.com/reeflective/readline/internal/core"
-	"github.com/reeflective/readline/internal/ui"
+	"github.com/gloathub/go-readline/inputrc"
+	"github.com/gloathub/go-readline/internal/color"
+	"github.com/gloathub/go-readline/internal/completion"
+	"github.com/gloathub/go-readline/internal/core"
+	"github.com/gloathub/go-readline/internal/ui"
 )
 
 // Sources manages and serves all history sources for the current shell.

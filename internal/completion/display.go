@@ -6,8 +6,8 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/reeflective/readline/internal/color"
-	"github.com/reeflective/readline/internal/term"
+	"github.com/gloathub/go-readline/internal/color"
+	"github.com/gloathub/go-readline/internal/term"
 )
 
 // Display prints the current completion list to the screen,

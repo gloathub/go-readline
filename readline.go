@@ -24,15 +24,15 @@ import (
 	"io"
 	"os"
 
-	"github.com/reeflective/readline/inputrc"
-	"github.com/reeflective/readline/internal/color"
-	"github.com/reeflective/readline/internal/completion"
-	"github.com/reeflective/readline/internal/core"
-	"github.com/reeflective/readline/internal/display"
-	"github.com/reeflective/readline/internal/history"
-	"github.com/reeflective/readline/internal/keymap"
-	"github.com/reeflective/readline/internal/macro"
-	"github.com/reeflective/readline/internal/term"
+	"github.com/gloathub/go-readline/inputrc"
+	"github.com/gloathub/go-readline/internal/color"
+	"github.com/gloathub/go-readline/internal/completion"
+	"github.com/gloathub/go-readline/internal/core"
+	"github.com/gloathub/go-readline/internal/display"
+	"github.com/gloathub/go-readline/internal/history"
+	"github.com/gloathub/go-readline/internal/keymap"
+	"github.com/gloathub/go-readline/internal/macro"
+	"github.com/gloathub/go-readline/internal/term"
 )
 
 // ErrInterrupt is returned when the interrupt sequence
